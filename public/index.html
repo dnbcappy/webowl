@@ -1371,10 +1371,13 @@ section { padding: 100px 0; }
       <div class="section-label">Let's Talk</div>
       <h2>Ready to give your business the website <em>it deserves?</em></h2>
       <p>Drop your email and we'll get back to you within 24 hours with a free, no-obligation consultation.</p>
-      <div class="cta-form">
-        <input type="email" placeholder="your@email.com" aria-label="Your email address">
-        <button class="btn btn-primary" type="button" onclick="handleSubmit()">Get Free Quote</button>
-      </div>
+      <form class="cta-form" id="contactForm">
+        <input type="hidden" name="access_key" value="3cbaa4b3-a7cb-48ac-8a5e-d2ee50049a0a">
+        <input type="email" name="email" placeholder="your@email.com" aria-label="Your email address" required>
+        <button class="btn btn-primary" type="submit">Get Free Quote</button>
+      </form>
+      <p class="cta-success" id="formSuccess" style="display:none; color: #22c55e; margin-top: 16px; font-weight: 600;">Thanks! We'll be in touch within 24 hours.</p>
+      <p class="cta-error" id="formError" style="display:none; color: #ef4444; margin-top: 16px; font-weight: 600;">Something went wrong. Please try again or email us directly.</p>
     </div>
   </div>
 </section>
@@ -1443,25 +1446,50 @@ document.querySelectorAll('.faq-question').forEach(btn => {
   });
 });
 
-// ─── FORM HANDLER (placeholder) ───
-function handleSubmit() {
-  const input = document.querySelector('.cta-form input');
-  const email = input.value.trim();
-  if (!email || !email.includes('@')) {
-    input.style.borderColor = '#ef4444';
-    input.focus();
-    setTimeout(() => input.style.borderColor = '', 2000);
-    return;
-  }
-  const btn = document.querySelector('.cta-form .btn');
-  btn.textContent = 'Sent! ✓';
-  btn.style.background = '#22c55e';
-  input.value = '';
-  setTimeout(() => {
+// ─── CONTACT FORM (Web3Forms AJAX) ───
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = this;
+  const btn = form.querySelector('button');
+  const input = form.querySelector('input[type="email"]');
+  const success = document.getElementById('formSuccess');
+  const error = document.getElementById('formError');
+
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  success.style.display = 'none';
+  error.style.display = 'none';
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: '3cbaa4b3-a7cb-48ac-8a5e-d2ee50049a0a',
+        email: input.value,
+        subject: 'New WebOwl inquiry'
+      })
+    });
+    const data = await res.json();
+    if (data.success) {
+      success.style.display = 'block';
+      input.value = '';
+      btn.textContent = 'Sent! ✓';
+      btn.style.background = '#22c55e';
+      setTimeout(() => {
+        btn.textContent = 'Get Free Quote';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3000);
+    } else {
+      throw new Error('Failed');
+    }
+  } catch (err) {
+    error.style.display = 'block';
     btn.textContent = 'Get Free Quote';
-    btn.style.background = '';
-  }, 3000);
-}
+    btn.disabled = false;
+  }
+});
 
 // ─── SMOOTH SCROLL FIX FOR NAV HEIGHT ───
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
