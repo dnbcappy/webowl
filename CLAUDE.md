@@ -10,7 +10,7 @@ toggle top-right. Deploy with `firebase deploy`.
 ---
 
 ## ✅ Done
-- Site live on Firebase (webowl.be) with SSL, NL/EN.
+- Site live on Firebase (webowl.be) with SSL, NL/FR/EN.
 - Contact form working (Web3Forms → Gmail).
 - **French (FR) added** — full third language, seamless toggle between NL / FR / EN.
 - **SEO `<head>`** — local keywords (Antwerpen), geo tags, canonical, robots,
@@ -68,7 +68,8 @@ toggle top-right. Deploy with `firebase deploy`.
     email anywhere on site, no XSS sinks, external links have `rel=noopener`.
   - **CSP added** to `firebase.json` (`default-src 'self'` + explicit allows for
     fonts.googleapis/gstatic, api.web3forms, data: favicon; `'unsafe-inline'` needed
-    for the inline style/script + `onerror`). ⚠️ Verify on a Firebase preview channel
-    before promoting to production — Live Server does not apply these headers.
+    for the inline style/script + `onerror`). Verified on a preview channel (fonts,
+    form submit, console all clean) then deployed live. Note: CSP/headers only apply
+    on Firebase, not Live Server — test header changes via `hosting:channel:deploy`.
   - **A11y fix**: underlined the inline `dylan@webowl.be` link (`.contact-alt a`) so
     it's distinguishable beyond colour (Lighthouse "links rely on color" → resolved).
