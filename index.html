@@ -507,7 +507,7 @@ const I18N = {
       ["shield", "Altijd online", "Lichte, statische sites die niet plat gaan. Je website werkt 24/7 — ook tijdens de drukste vrijdagavond."]
     ],
     work: [
-      ["Kunstgalerij", "Lokale ondernemer", "Kunstgalerij online", "Een sfeervolle site voor een kunstgalerij, waar bezoekers werk ontdekken en de kunstenaar rechtstreeks kunnen contacteren."],
+      ["Stesha Gallery", "Lokale ondernemer", "Kunstgalerij", "Een sfeervolle site voor een kunstgalerij, waar bezoekers werk ontdekken en de kunstenaar rechtstreeks kunnen contacteren."],
       ["Cappy Studios", "Eigen studio", "cappystudios.dev", "De site van mijn eigen game-studio. Bewijs dat ik gepolijste, professionele sites van A tot Z bouw."],
       ["Snake 50", "Web-app", "Een webgame", "Een browser-game die ik volledig zelf codeerde. Geen template — bewijs dat ik écht ontwikkel, niet enkel samenstel."]
     ],
@@ -547,7 +547,7 @@ const I18N = {
       ["shield", "Toujours en ligne", "Des sites légers et statiques qui ne tombent jamais. Votre site tourne 24h/24 — même le vendredi soir le plus chargé."]
     ],
     work: [
-      ["Galerie d'art", "Commerce local", "Galerie d'art en ligne", "Un site plein d'ambiance pour une galerie d'art, où les visiteurs découvrent les œuvres et peuvent contacter l'artiste directement."],
+      ["Stesha Gallery", "Commerce local", "Galerie d'art", "Un site plein d'ambiance pour une galerie d'art, où les visiteurs découvrent les œuvres et peuvent contacter l'artiste directement."],
       ["Cappy Studios", "Mon studio", "cappystudios.dev", "Le site de mon propre studio de jeux. La preuve que je construis des sites soignés et professionnels de A à Z."],
       ["Snake 50", "Application web", "Un jeu web", "Un jeu de navigateur que j'ai entièrement codé moi-même. Aucun template — la preuve que je développe vraiment, je ne fais pas qu'assembler."]
     ],
@@ -587,7 +587,7 @@ const I18N = {
       ["shield", "Always online", "Light, static sites that don't go down. Your website runs 24/7 — even on the busiest Friday night."]
     ],
     work: [
-      ["Art gallery", "Local business", "Art gallery online", "An atmospheric site for an art gallery where visitors discover work and can contact the artist directly."],
+      ["Stesha Gallery", "Local business", "Art gallery", "An atmospheric site for an art gallery where visitors discover work and can contact the artist directly."],
       ["Cappy Studios", "Own studio", "cappystudios.dev", "The site for my own game studio. Proof that I build polished, professional sites end to end."],
       ["Snake 50", "Web app", "A web game", "A browser game I coded entirely myself. No template — proof that I actually develop, not just assemble."]
     ],
@@ -618,7 +618,7 @@ function renderDynamic() {
     return '<div class="card reveal"><div class="ico">' + svgIcon(s[0]) + '</div><h3>' + s[1] + '</h3><p>' + s[2] + '</p></div>';
   }).join("");
   // work
-  const links = ["#", "https://cappystudios.dev", "#"]; // pas portfolio-links hier aan
+  const links = ["https://steshagallery.com/", "https://cappystudios.dev/", "https://snake50.com/"]; // pas portfolio-links hier aan
   document.getElementById("work").innerHTML = t.work.map(function(w, i){
     return '<a class="work-card reveal" href="' + links[i] + '"' + (links[i].startsWith("http") ? ' target="_blank" rel="noopener"' : '') + '>' +
       '<div class="work-thumb"><span class="tag">' + w[1] + '</span><span class="label">' + w[2] + '</span></div>' +
