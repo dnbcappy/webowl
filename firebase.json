@@ -1,7 +1,7 @@
 {
   "hosting": {
     "public": ".",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "README.md"],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "README.md", "og-image.html"],
     "cleanUrls": true,
     "headers": [
       { "source": "**/*.@(jpg|jpeg|png|svg|webp)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }] }

@@ -3,13 +3,65 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>WebOwl — Websites voor lokale ondernemers</title>
+<title>WebOwl — Websites voor lokale ondernemers in Antwerpen</title>
 <meta name="description" content="Snelle, professionele websites voor lokale zaken in en rond Antwerpen. Eén vaste prijs, alles inbegrepen. Je site staat 24/7 online — ook wanneer jij slaapt." />
+<meta name="keywords" content="website laten maken Antwerpen, webdesign Antwerpen, website lokale zaak, website kebabzaak, website frituur, website restaurant Antwerpen, betaalbare website" />
+<meta name="author" content="Dylan Callens — WebOwl" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://webowl.be/" />
 
+<!-- regional / local signals -->
+<meta name="geo.region" content="BE-VAN" />
+<meta name="geo.placename" content="Antwerpen" />
+<meta name="geo.position" content="51.2194;4.4025" />
+<meta name="ICBM" content="51.2194, 4.4025" />
+
+<!-- social share card -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="WebOwl — Websites voor lokale ondernemers" />
-<meta property="og:description" content="Snelle, professionele websites voor lokale zaken. Eén vaste prijs, alles inbegrepen. Altijd online." />
+<meta property="og:site_name" content="WebOwl" />
+<meta property="og:url" content="https://webowl.be/" />
+<meta property="og:title" content="WebOwl — Websites voor lokale ondernemers in Antwerpen" />
+<meta property="og:description" content="Snelle, professionele websites voor lokale zaken. Eén vaste prijs, alles inbegrepen. De site die nooit slaapt." />
 <meta property="og:locale" content="nl_BE" />
+<meta property="og:locale:alternate" content="fr_BE" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:image" content="https://webowl.be/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="WebOwl — de site die nooit slaapt" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="WebOwl — Websites voor lokale ondernemers in Antwerpen" />
+<meta name="twitter:description" content="Snelle, professionele websites voor lokale zaken. Eén vaste prijs, alles inbegrepen. De site die nooit slaapt." />
+<meta name="twitter:image" content="https://webowl.be/og-image.png" />
+
+<!-- structured data: tells Google what you are + where you serve -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "WebOwl",
+  "image": "https://webowl.be/og-image.png",
+  "url": "https://webowl.be/",
+  "email": "dylan@webowl.be",
+  "description": "Snelle, professionele websites voor lokale ondernemers in en rond Antwerpen. Eén vaste prijs, alles inbegrepen.",
+  "founder": { "@type": "Person", "name": "Dylan Callens" },
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Antwerpen",
+    "addressRegion": "Antwerpen",
+    "addressCountry": "BE"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Antwerpen" },
+    { "@type": "AdministrativeArea", "name": "Provincie Antwerpen" },
+    { "@type": "Country", "name": "België" }
+  ],
+  "availableLanguage": ["nl", "fr", "en"],
+  "knowsLanguage": ["nl", "fr", "en"],
+  "sameAs": ["https://cappystudios.dev"]
+}
+</script>
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E1428'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%23E8B04B' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23E8B04B'/%3E%3C/svg%3E" />
 
@@ -248,6 +300,7 @@
       <a href="#over" data-i18n="nav.about">Over</a>
       <div class="lang" role="group" aria-label="Taal / Language">
         <button data-lang="nl" class="active" aria-pressed="true">NL</button>
+        <button data-lang="fr" aria-pressed="false">FR</button>
         <button data-lang="en" aria-pressed="false">EN</button>
       </div>
       <a href="#contact" class="btn btn-primary nav-cta" data-i18n="nav.cta">Gratis voorstel</a>
@@ -361,7 +414,7 @@
           <a class="wa-btn" id="wa-link" href="#contact" data-i18n="contact.wa">Stuur een WhatsApp</a>
           <p class="contact-alt" data-i18n-html="contact.alt">Of mail rechtstreeks naar <a href="mailto:dylan@webowl.be">dylan@webowl.be</a></p>
         </div>
-        <form id="contact-form" data-success-nl="Bedankt! Ik antwoord zo snel mogelijk." data-success-en="Thanks! I'll get back to you as soon as possible." data-error-nl="Er ging iets mis. Mail of WhatsApp me gerust rechtstreeks." data-error-en="Something went wrong. Feel free to email or WhatsApp me directly.">
+        <form id="contact-form" data-success-nl="Bedankt! Ik antwoord zo snel mogelijk." data-success-fr="Merci ! Je vous réponds dès que possible." data-success-en="Thanks! I'll get back to you as soon as possible." data-error-nl="Er ging iets mis. Mail of WhatsApp me gerust rechtstreeks." data-error-fr="Une erreur s'est produite. Envoyez-moi un e-mail ou un WhatsApp directement." data-error-en="Something went wrong. Feel free to email or WhatsApp me directly.">
           <input type="hidden" name="access_key" value="13d9d71b-f892-427b-9587-0022747f08dc" />
           <input type="hidden" name="subject" value="Nieuw bericht via WebOwl" />
           <input type="hidden" name="from_name" value="WebOwl website" />
@@ -460,6 +513,46 @@ const I18N = {
     ],
     price: ["Een eigen site op maat, geen template-gevoel", "Mobiel-eerst, snel en licht (Lighthouse 90+)", "Contactformulier dat altijd werkt", "Google Bedrijfsprofiel opgezet", "Aanpassingen & prijswijzigingen inbegrepen", "Hosting & domein-hulp inbegrepen"],
     strip: ["Kebabzaken", "Frituren", "Bakkers", "Pizzeria's", "Kleine restaurants", "Lokale KMO's", "Coaches", "Personal trainers"]
+  },
+  fr: {
+    "nav.services": "Services", "nav.work": "Réalisations", "nav.price": "Tarif", "nav.about": "À propos", "nav.contact": "Contact", "nav.cta": "Devis gratuit",
+    "hero.status": "Toujours en ligne",
+    "hero.title": 'Votre commerce mérite un site qui <span class="accent">ne dort jamais</span>.',
+    "hero.sub": "Des sites rapides et professionnels pour les commerces locaux à Anvers et ses environs. Un prix fixe, tout compris — et votre site reste en ligne 24h/24, même quand vous êtes fermé.",
+    "hero.cta1": "Devis gratuit", "hero.cta2": "Voir les réalisations",
+    "hero.note": "Zéro stress technique. Vous fournissez les infos, je construis le site.",
+    "services.eyebrow": "Ce que je fais", "services.title": "Tout ce dont un commerce local a besoin en ligne",
+    "work.eyebrow": "Réalisations", "work.title": "De vrais sites, vraiment en ligne",
+    "price.eyebrow": "Tarif", "price.title": "Un prix clair. Aucune surprise.",
+    "price.label": "Formule complète", "price.setup": "une seule fois", "price.month": "par mois, tout compris", "price.cta": "Lancez votre site",
+    "price.aside.title": 'Ce que « tout compris » signifie',
+    "price.aside.text": "L'hébergement, votre domaine, les modifications et les changements de prix sont inclus dans les 25 €/mois. Vous ne payez pas par modification et vous ne recevez aucune facture surprise. Des projets plus ambitieux ? Je vous fais un devis à part.",
+    "price.aside.note": "Pas de tarifs d'agence. Aucun contrat annuel qui vous enferme.",
+    "about.eyebrow": "Qui", "about.photo": "Photo à venir (Dylan)",
+    "about.title": "Conçu par quelqu'un qui fait tout lui-même",
+    "about.p1": "Bonjour, je suis <strong>Dylan</strong> — basé dans la région d'Anvers, avec un bachelier en gestion d'entreprise et mon propre studio de jeux. Je crée des choses avec du code depuis des années.",
+    "about.p2": "WebOwl existe parce que j'ai vu des commerces locaux facturés trop cher et mal servis par les agences classiques. Pas besoin d'un budget de 10 000 € pour être en ligne. Je travaille léger, j'utilise des outils modernes et je livre en direct — pas de chefs de projet, pas de détours.",
+    "about.pt1": "Contact direct", "about.pt2": "Aucun frais caché", "about.pt3": "Sites rapides et légers", "about.pt4": "Local, dans votre langue",
+    "contact.eyebrow": "Contact", "contact.title": "Prêt pour un site qui fonctionne ?",
+    "contact.text": "Parlez-moi brièvement de votre commerce et de vos besoins. Je réponds généralement dans la journée — souvent plus vite. Vous préférez appeler ou écrire ? C'est possible aussi.",
+    "contact.wa": "Envoyer un WhatsApp", "contact.alt": 'Ou écrivez directement à <a href="mailto:dylan@webowl.be">dylan@webowl.be</a>',
+    "contact.name": "Nom", "contact.contact": "E-mail ou téléphone", "contact.msg": "À propos de votre commerce", "contact.send": "Envoyer",
+    "foot.tag": "Des sites pour les commerces locaux à Anvers et ses environs.", "foot.kbo": "Numéro d'entreprise : à venir après enregistrement",
+    services: [
+      ["layout", "Site sur mesure", "Un site propre et rapide, adapté à votre commerce. Aucun effet « template » — un look à vous qui convainc les clients."],
+      ["globe", "Multilingue (NL/FR/EN)", "Touchez les clients dans toutes les langues parlées dans votre quartier. Bien construit, optimisé localement."],
+      ["zap", "Page d'atterrissage", "Une page puissante pour une action, un lancement ou une campagne. Vite prête, impact maximal."],
+      ["tool", "Maintenance & mises à jour", "Modifications et changements de prix inclus. Envoyez-moi un message, c'est en ligne rapidement."],
+      ["search", "SEO local & Google", "Soyez trouvé là où ça compte. Je configure votre fiche Google Business et j'optimise votre visibilité locale."],
+      ["shield", "Toujours en ligne", "Des sites légers et statiques qui ne tombent jamais. Votre site tourne 24h/24 — même le vendredi soir le plus chargé."]
+    ],
+    work: [
+      ["Galerie d'art", "Commerce local", "Galerie d'art en ligne", "Un site plein d'ambiance pour une galerie d'art, où les visiteurs découvrent les œuvres et peuvent contacter l'artiste directement."],
+      ["Cappy Studios", "Mon studio", "cappystudios.dev", "Le site de mon propre studio de jeux. La preuve que je construis des sites soignés et professionnels de A à Z."],
+      ["Snake 50", "Application web", "Un jeu web", "Un jeu de navigateur que j'ai entièrement codé moi-même. Aucun template — la preuve que je développe vraiment, je ne fais pas qu'assembler."]
+    ],
+    price: ["Un site sur mesure, sans effet template", "Mobile d'abord, rapide et léger (Lighthouse 90+)", "Un formulaire de contact qui marche toujours", "Fiche Google Business configurée", "Modifications & changements de prix inclus", "Hébergement & aide au domaine inclus"],
+    strip: ["Kebabs", "Friteries", "Boulangeries", "Pizzerias", "Petits restaurants", "PME locales", "Coachs", "Coachs sportifs"]
   },
   en: {
     "nav.services": "Services", "nav.work": "Work", "nav.price": "Pricing", "nav.about": "About", "nav.contact": "Contact", "nav.cta": "Free proposal",
@@ -606,7 +699,8 @@ form.addEventListener("submit", async function(e){
   var key = form.querySelector('[name=access_key]').value;
   formStatus.className = "form-status";
   if (!key || key.indexOf("JOUW_") === 0) {
-    formStatus.textContent = lang === "nl" ? "Formulier nog niet geconfigureerd (Web3Forms-key ontbreekt)." : "Form not configured yet (Web3Forms key missing).";
+    var notConfigured = { nl: "Formulier nog niet geconfigureerd (Web3Forms-key ontbreekt).", fr: "Formulaire pas encore configuré (clé Web3Forms manquante).", en: "Form not configured yet (Web3Forms key missing)." };
+    formStatus.textContent = notConfigured[lang] || notConfigured.en;
     formStatus.classList.add("err");
     return;
   }
