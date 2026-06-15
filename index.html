@@ -156,9 +156,13 @@
   .hero-glow {
     position: absolute; top: -30%; right: -10%; width: 60vw; height: 60vw; max-width: 700px; max-height: 700px;
     background: radial-gradient(circle, rgba(232,176,75,0.14) 0%, rgba(232,176,75,0) 68%);
-    pointer-events: none; z-index: 0;
+    pointer-events: none; z-index: 0; animation: breathe 9s ease-in-out infinite;
   }
+  @keyframes breathe { 0%, 100% { opacity: .75; transform: scale(1); } 50% { opacity: 1; transform: scale(1.12); } }
+  @media (prefers-reduced-motion: reduce) { .hero-glow { animation: none; } }
   .hero .wrap { position: relative; z-index: 1; }
+  .hero-inner { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
+  @media (min-width: 920px) { .hero-inner { grid-template-columns: 1.05fr 0.95fr; gap: 2.5rem; } }
   .status {
     display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; font-weight: 500;
     background: var(--night-2); border: 1px solid var(--line-2); padding: 0.45rem 0.95rem; border-radius: 999px; margin-bottom: 1.8rem; color: var(--paper-dim);
@@ -172,6 +176,42 @@
   .hero-sub { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--paper-dim); max-width: 46ch; margin-bottom: 2.2rem; }
   .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; }
   .hero-note { font-size: 0.85rem; color: var(--paper-dim); margin-top: 1.4rem; display: flex; align-items: center; gap: .5rem; }
+
+  /* ---------- hero visual (floating browser mockup) ---------- */
+  .hero-visual { display: none; }
+  @media (min-width: 920px) { .hero-visual { display: block; position: relative; z-index: 1; } }
+  .mock {
+    position: relative; border-radius: 16px; overflow: hidden;
+    background: linear-gradient(160deg, var(--night-3), var(--night-2));
+    border: 1px solid var(--line-2);
+    box-shadow: 0 40px 90px -35px rgba(0,0,0,.7), inset 0 1px 0 rgba(242,239,230,.04);
+    animation: float 7s ease-in-out infinite;
+  }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  @media (prefers-reduced-motion: reduce) { .mock, .mock-chip { animation: none !important; } }
+  .mock-bar { display: flex; align-items: center; gap: .6rem; padding: .7rem .9rem; border-bottom: 1px solid var(--line); background: rgba(0,0,0,.2); }
+  .mock-bar .dots { display: inline-flex; gap: .4rem; }
+  .mock-bar .dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--line-2); }
+  .mock-url { flex: 1; display: inline-flex; align-items: center; gap: .45rem; font-size: .72rem; color: var(--paper-dim); background: var(--night); border: 1px solid var(--line); border-radius: 6px; padding: .32rem .6rem; }
+  .mock-url svg { color: #2ECC71; flex-shrink: 0; }
+  .mock-body { padding: 1.6rem 1.5rem 1.9rem; }
+  .mock-eyebrow { font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; color: var(--amber); font-weight: 700; margin: 0; }
+  .mock-title { font-family: "Fraunces", serif; font-size: 1.55rem; line-height: 1.12; margin: .5rem 0 1rem; color: var(--paper); }
+  .mock-line { height: 8px; border-radius: 4px; background: var(--line); margin-bottom: .55rem; }
+  .mock-line.short { width: 58%; }
+  .mock-row { display: flex; align-items: center; gap: .8rem; margin-top: 1.2rem; }
+  .mock-btn { font-size: .72rem; font-weight: 700; color: #2A1E06; background: var(--amber); padding: .5rem 1rem; border-radius: 999px; }
+  .mock-hours { font-size: .7rem; color: var(--paper-dim); font-weight: 600; }
+  .mock-chip {
+    position: absolute; right: -16px; bottom: 26px; z-index: 2;
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: var(--night-2); border: 1px solid var(--line-2); border-radius: 12px;
+    padding: .6rem .85rem; font-size: .76rem; font-weight: 600; color: var(--paper);
+    box-shadow: 0 18px 40px -16px rgba(0,0,0,.75);
+    animation: float 7s ease-in-out infinite; animation-delay: -3.5s;
+  }
+  .mock-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: #2ECC71; position: relative; }
+  .mock-chip .dot::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; background: #2ECC71; opacity: .5; animation: pulse 2.4s ease-out infinite; }
 
   /* ---------- marquee strip ---------- */
   .strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--night-2); padding: 1rem 0; overflow: hidden; }
@@ -201,8 +241,9 @@
   }
   .work-card:hover { border-color: var(--amber); transform: translateY(-4px); }
   .work-thumb { aspect-ratio: 16/10; background: linear-gradient(135deg, var(--night-3), var(--night-2)); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .work-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; z-index: 1; }
   .work-thumb .label { font-family: "Fraunces", serif; font-size: 1.5rem; color: var(--paper); opacity: .9; padding: 1rem; text-align: center; }
-  .work-thumb .tag { position: absolute; top: 0.8rem; left: 0.8rem; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; background: rgba(14,20,40,.7); color: var(--amber); padding: 0.25rem 0.6rem; border-radius: 6px; backdrop-filter: blur(4px); }
+  .work-thumb .tag { position: absolute; top: 0.8rem; left: 0.8rem; z-index: 2; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; background: rgba(14,20,40,.7); color: var(--amber); padding: 0.25rem 0.6rem; border-radius: 6px; backdrop-filter: blur(4px); }
   .work-body { padding: 1.3rem 1.4rem; }
   .work-body h3 { font-family: "Inter", sans-serif; font-size: 1.08rem; font-weight: 600; margin-bottom: 0.35rem; display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
   .work-body h3 .arrow { color: var(--amber); transition: transform .2s; }
@@ -216,7 +257,7 @@
     background: linear-gradient(160deg, var(--night-3), var(--night-2)); border: 1px solid var(--line-2);
     border-radius: 20px; padding: 2.2rem; position: relative; overflow: hidden;
   }
-  .price-card .glow { position: absolute; top: -40%; left: -20%; width: 80%; height: 120%; background: radial-gradient(circle, var(--amber-soft) 0%, transparent 65%); pointer-events: none; }
+  .price-card .glow { position: absolute; inset: 0; background: radial-gradient(140% 120% at 8% 0%, var(--amber-soft) 0%, transparent 85%); pointer-events: none; }
   .price-card .rel { position: relative; z-index: 1; }
   .price-tag { display: flex; align-items: baseline; gap: 0.5rem; margin: 0.4rem 0 0.2rem; }
   .price-tag .big { font-family: "Fraunces", serif; font-size: 3.2rem; font-weight: 600; color: var(--paper); line-height: 1; }
@@ -246,7 +287,7 @@
   .wa-btn { display: inline-flex; align-items: center; gap: 0.6rem; background: #25D366; color: #06281A; font-weight: 600; padding: 0.9rem 1.5rem; border-radius: 999px; transition: transform .15s; }
   .wa-btn:hover { transform: translateY(-2px); }
   .contact-alt { font-size: 0.88rem; color: var(--paper-dim); margin-top: 1.2rem; }
-  .contact-alt a { color: var(--amber); }
+  .contact-alt a { color: var(--amber); text-decoration: underline; text-underline-offset: 2px; }
   form { display: grid; gap: 1rem; }
   .field { display: grid; gap: 0.4rem; }
   .field label { font-size: 0.82rem; font-weight: 500; color: var(--paper-dim); }
@@ -313,21 +354,48 @@
   <section class="hero">
     <div class="hero-glow"></div>
     <div class="wrap">
-      <span class="status">
-        <span class="dot"></span>
-        <span data-i18n="hero.status">Altijd online</span> ·
-        <span class="clock" id="clock">--:--</span>
-      </span>
-      <h1 data-i18n-html="hero.title">Je zaak verdient een website die <span class="accent">nooit slaapt</span>.</h1>
-      <p class="hero-sub" data-i18n="hero.sub">Snelle, professionele websites voor lokale zaken in en rond Antwerpen. Eén vaste prijs, alles inbegrepen — en je site staat 24/7 online, ook wanneer jij dicht bent.</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Gratis voorstel</a>
-        <a href="#werk" class="btn btn-ghost" data-i18n="hero.cta2">Bekijk het werk</a>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="status">
+            <span class="dot"></span>
+            <span data-i18n="hero.status">Altijd online</span> ·
+            <span class="clock" id="clock">--:--</span>
+          </span>
+          <h1 data-i18n-html="hero.title">Je zaak verdient een website die <span class="accent">nooit slaapt</span>.</h1>
+          <p class="hero-sub" data-i18n="hero.sub">Snelle, professionele websites voor lokale zaken in en rond Antwerpen. Eén vaste prijs, alles inbegrepen — en je site staat 24/7 online, ook wanneer jij dicht bent.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Gratis voorstel</a>
+            <a href="#werk" class="btn btn-ghost" data-i18n="hero.cta2">Bekijk het werk</a>
+          </div>
+          <p class="hero-note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <span data-i18n="hero.note">Geen setup-stress. Jij levert de info, ik bouw de site.</span>
+          </p>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="mock">
+            <div class="mock-bar">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="mock-url">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span data-i18n="mock.url">jouw-zaak.be</span>
+              </span>
+            </div>
+            <div class="mock-body">
+              <p class="mock-eyebrow" data-i18n="mock.eyebrow">Lokale zaak</p>
+              <p class="mock-title" data-i18n="mock.title">Altijd open, ook online</p>
+              <div class="mock-line"></div>
+              <div class="mock-line"></div>
+              <div class="mock-line short"></div>
+              <div class="mock-row">
+                <span class="mock-btn" data-i18n="mock.btn">Reserveer</span>
+                <span class="mock-hours" data-i18n="mock.hours">Ma–Zo · 24/7</span>
+              </div>
+            </div>
+          </div>
+          <span class="mock-chip"><span class="dot"></span> <span data-i18n="mock.chip">24/7 online</span></span>
+        </div>
       </div>
-      <p class="hero-note">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-        <span data-i18n="hero.note">Geen setup-stress. Jij levert de info, ik bouw de site.</span>
-      </p>
     </div>
   </section>
 
@@ -481,6 +549,7 @@ const I18N = {
     "hero.sub": "Snelle, professionele websites voor lokale zaken in en rond Antwerpen. Eén vaste prijs, alles inbegrepen — en je site staat 24/7 online, ook wanneer jij dicht bent.",
     "hero.cta1": "Gratis voorstel", "hero.cta2": "Bekijk het werk",
     "hero.note": "Geen setup-stress. Jij levert de info, ik bouw de site.",
+    "mock.url": "jouw-zaak.be", "mock.eyebrow": "Lokale zaak", "mock.title": "Altijd open, ook online", "mock.btn": "Reserveer", "mock.hours": "Ma–Zo · 24/7", "mock.chip": "24/7 online",
     "services.eyebrow": "Wat ik doe", "services.title": "Alles wat een lokale zaak online nodig heeft",
     "work.eyebrow": "Werk", "work.title": "Echte sites, echt online",
     "price.eyebrow": "Prijs", "price.title": "Eén heldere prijs. Geen verrassingen.",
@@ -521,6 +590,7 @@ const I18N = {
     "hero.sub": "Des sites rapides et professionnels pour les commerces locaux à Anvers et ses environs. Un prix fixe, tout compris — et votre site reste en ligne 24h/24, même quand vous êtes fermé.",
     "hero.cta1": "Devis gratuit", "hero.cta2": "Voir les réalisations",
     "hero.note": "Zéro stress technique. Vous fournissez les infos, je construis le site.",
+    "mock.url": "votre-commerce.be", "mock.eyebrow": "Commerce local", "mock.title": "Toujours ouvert, aussi en ligne", "mock.btn": "Réserver", "mock.hours": "Lun–Dim · 24h/24", "mock.chip": "24h/24 en ligne",
     "services.eyebrow": "Ce que je fais", "services.title": "Tout ce dont un commerce local a besoin en ligne",
     "work.eyebrow": "Réalisations", "work.title": "De vrais sites, vraiment en ligne",
     "price.eyebrow": "Tarif", "price.title": "Un prix clair. Aucune surprise.",
@@ -561,6 +631,7 @@ const I18N = {
     "hero.sub": "Fast, professional websites for local businesses in and around Antwerp. One fixed price, everything included — and your site stays online 24/7, even when you're closed.",
     "hero.cta1": "Free proposal", "hero.cta2": "See the work",
     "hero.note": "No setup stress. You bring the info, I build the site.",
+    "mock.url": "your-shop.be", "mock.eyebrow": "Local business", "mock.title": "Always open, also online", "mock.btn": "Book now", "mock.hours": "Mon–Sun · 24/7", "mock.chip": "24/7 online",
     "services.eyebrow": "What I do", "services.title": "Everything a local business needs online",
     "work.eyebrow": "Work", "work.title": "Real sites, really online",
     "price.eyebrow": "Pricing", "price.title": "One clear price. No surprises.",
@@ -619,9 +690,10 @@ function renderDynamic() {
   }).join("");
   // work
   const links = ["https://steshagallery.com/", "https://cappystudios.dev/", "https://snake50.com/"]; // pas portfolio-links hier aan
+  const thumbs = ["img/work-stesha.webp", "img/work-cappy.webp", "img/work-snake.webp"]; // screenshots, 1200×750 (16:10); ontbreekt = valt terug op gradient
   document.getElementById("work").innerHTML = t.work.map(function(w, i){
     return '<a class="work-card reveal" href="' + links[i] + '"' + (links[i].startsWith("http") ? ' target="_blank" rel="noopener"' : '') + '>' +
-      '<div class="work-thumb"><span class="tag">' + w[1] + '</span><span class="label">' + w[2] + '</span></div>' +
+      '<div class="work-thumb"><img src="' + thumbs[i] + '" alt="' + w[0] + ' — website" loading="lazy" decoding="async" width="1200" height="750" onerror="this.remove()"><span class="tag">' + w[1] + '</span><span class="label">' + w[2] + '</span></div>' +
       '<div class="work-body"><h3>' + w[0] + ' <span class="arrow">↗</span></h3><p>' + w[3] + '</p></div></a>';
   }).join("");
   // price list

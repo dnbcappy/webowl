@@ -20,9 +20,14 @@ toggle top-right. Deploy with `firebase deploy`.
 - **Portfolio links live** — Stesha Gallery (steshagallery.com), Cappy Studios
   (cappystudios.dev), Snake 50 (snake50.com).
 - Gallery card relabeled to real name "Stesha Gallery".
+- **Work-card images** — real site screenshots (WebP, 1200×750) in `img/`
+  (`work-stesha.webp`, `work-cappy.webp`, `work-snake.webp`); lazy-loaded with
+  gradient fallback. Big PNG originals kept locally but excluded from deploy.
+- **Security headers** — `firebase.json` sets nosniff, X-Frame-Options SAMEORIGIN,
+  Referrer-Policy, Permissions-Policy, HSTS. (Static site, no XSS sink; form key is
+  public-by-design and does not reveal the destination inbox.)
 
 ## ⏳ To do (small, non-blocking polish)
-- [ ] **Images** — add real photos / visuals to the work cards + sections (planned next).
 - [ ] **About photo** — replace the "Foto komt hier (Dylan)" placeholder box with a real photo.
       (Search `about-photo` in HTML / `about.photo` in the I18N blocks.)
 - [ ] **WhatsApp number** — search `WHATSAPP_NUMBER`, set as `32xxxxxxxxx` (no + or spaces).
@@ -46,3 +51,24 @@ toggle top-right. Deploy with `firebase deploy`.
   - Upgraded `<head>`: regional SEO meta, geo tags, `ProfessionalService` JSON-LD.
   - Built + wired social share card (`og-image.png` / `og-image.html`).
   - Filled portfolio links; renamed gallery card to "Stesha Gallery".
+  - **Hero liveliness pass**: floating CSS "browser mockup" on the right
+    (`.hero-visual` / `.mock`) with a pulsing `24/7 online` chip; bg glow now
+    "breathes"; hero is 2-col (`.hero-inner`, mockup hidden <920px). Mockup text is
+    language-aware (`mock.*` keys in all 3 I18N blocks). A real site screenshot can
+    drop into the mockup later (~1000×625).
+  - **Pricing card glow fix**: glow spans the whole card (ellipse wash) instead of
+    cutting off ~⅔ down. (Search `.price-card .glow`.)
+  - Image specs for next step: work-card thumbs **1200×750** (16:10), about photo
+    **800×1000** (4:5).
+  - **Work-card screenshots added** — WebP 1200×750 in `img/` (stesha 29 KB, cappy
+    81 KB, snake 55 KB); `.work-thumb img` cover, lazy-load, `onerror` falls back to
+    gradient. Old PNG originals excluded from deploy (`img/work-*.png` in ignore).
+  - **Security pass** — added response headers in `firebase.json` (nosniff,
+    SAMEORIGIN, Referrer-Policy, Permissions-Policy, HSTS). Audited: no personal
+    email anywhere on site, no XSS sinks, external links have `rel=noopener`.
+  - **CSP added** to `firebase.json` (`default-src 'self'` + explicit allows for
+    fonts.googleapis/gstatic, api.web3forms, data: favicon; `'unsafe-inline'` needed
+    for the inline style/script + `onerror`). ⚠️ Verify on a Firebase preview channel
+    before promoting to production — Live Server does not apply these headers.
+  - **A11y fix**: underlined the inline `dylan@webowl.be` link (`.contact-alt a`) so
+    it's distinguishable beyond colour (Lighthouse "links rely on color" → resolved).
