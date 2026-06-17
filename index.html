@@ -273,7 +273,8 @@
   /* ---------- about ---------- */
   .about { display: grid; gap: 2.5rem; grid-template-columns: 1fr; align-items: center; }
   @media (min-width: 760px) { .about { grid-template-columns: 0.8fr 1.2fr; } }
-  .about-photo { aspect-ratio: 4/5; background: linear-gradient(150deg, var(--night-3), var(--night-2)); border-radius: 20px; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; color: var(--paper-dim); font-size: .85rem; text-align: center; padding: 1rem; }
+  .about-photo { aspect-ratio: 4/5; background: linear-gradient(150deg, var(--night-3), var(--night-2)); border-radius: 20px; border: 1px solid var(--line); overflow: hidden; }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; }
   .about p { color: var(--paper-dim); margin-bottom: 1rem; }
   .about p strong { color: var(--paper); font-weight: 500; }
   .about-points { list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
@@ -455,7 +456,7 @@
     <div class="wrap">
       <p class="eyebrow" data-i18n="about.eyebrow">Wie</p>
       <div class="about">
-        <div class="about-photo" data-i18n="about.photo">Foto komt hier<br>(Dylan)</div>
+        <div class="about-photo"><img src="img/about-dylan.webp" alt="Dylan, oprichter van WebOwl" loading="lazy" decoding="async" width="800" height="1000" onerror="this.remove()"></div>
         <div>
           <h2 style="margin-bottom:1.2rem" data-i18n="about.title">Gebouwd door iemand die het zelf doet</h2>
           <p data-i18n-html="about.p1">Hoi, ik ben <strong>Dylan</strong> — gebaseerd in de regio Antwerpen, met een bachelor Bedrijfsmanagement en een eigen game-studio. Ik bouw al jaren dingen met code.</p>
@@ -557,7 +558,7 @@ const I18N = {
     "price.aside.title": 'Wat "alles inbegrepen" betekent',
     "price.aside.text": "Hosting, je domein, aanpassingen en prijswijzigingen zitten in de €25/maand. Je betaalt niet per wijziging en je krijgt geen verrassingsfacturen. Grotere projecten? Daarvoor maak ik een aparte offerte.",
     "price.aside.note": "Geen bureauprijzen. Geen jaarcontract dat je vastzet.",
-    "about.eyebrow": "Wie", "about.photo": "Foto komt hier (Dylan)",
+    "about.eyebrow": "Wie",
     "about.title": "Gebouwd door iemand die het zelf doet",
     "about.p1": "Hoi, ik ben <strong>Dylan</strong> — gebaseerd in de regio Antwerpen, met een bachelor Bedrijfsmanagement en een eigen game-studio. Ik bouw al jaren dingen met code.",
     "about.p2": "WebOwl bestaat omdat ik lokale zaken te duur en te traag bediend zag worden door klassieke bureaus. Je hebt geen budget van €10.000 nodig om online te staan. Ik werk lean, gebruik moderne tools, en lever rechtstreeks — geen account managers, geen omweg.",
@@ -598,7 +599,7 @@ const I18N = {
     "price.aside.title": 'Ce que « tout compris » signifie',
     "price.aside.text": "L'hébergement, votre domaine, les modifications et les changements de prix sont inclus dans les 25 €/mois. Vous ne payez pas par modification et vous ne recevez aucune facture surprise. Des projets plus ambitieux ? Je vous fais un devis à part.",
     "price.aside.note": "Pas de tarifs d'agence. Aucun contrat annuel qui vous enferme.",
-    "about.eyebrow": "Qui", "about.photo": "Photo à venir (Dylan)",
+    "about.eyebrow": "Qui",
     "about.title": "Conçu par quelqu'un qui fait tout lui-même",
     "about.p1": "Bonjour, je suis <strong>Dylan</strong> — basé dans la région d'Anvers, avec un bachelier en gestion d'entreprise et mon propre studio de jeux. Je crée des choses avec du code depuis des années.",
     "about.p2": "WebOwl existe parce que j'ai vu des commerces locaux facturés trop cher et mal servis par les agences classiques. Pas besoin d'un budget de 10 000 € pour être en ligne. Je travaille léger, j'utilise des outils modernes et je livre en direct — pas de chefs de projet, pas de détours.",
@@ -639,7 +640,7 @@ const I18N = {
     "price.aside.title": 'What "all included" means',
     "price.aside.text": "Hosting, your domain, edits and price changes are all in the €25/month. You don't pay per change and you won't get surprise invoices. Bigger projects? I'll quote those separately.",
     "price.aside.note": "No agency prices. No yearly contract locking you in.",
-    "about.eyebrow": "Who", "about.photo": "Photo goes here (Dylan)",
+    "about.eyebrow": "Who",
     "about.title": "Built by someone who does it himself",
     "about.p1": "Hi, I'm <strong>Dylan</strong> — based in the Antwerp area, with a Business Management degree and my own game studio. I've been building things with code for years.",
     "about.p2": "WebOwl exists because I saw local businesses overcharged and underserved by traditional agencies. You shouldn't need a €10,000 budget to get online. I work lean, use modern tools, and deliver directly — no account managers, no runaround.",

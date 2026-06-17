@@ -26,10 +26,10 @@ toggle top-right. Deploy with `firebase deploy`.
 - **Security headers** — `firebase.json` sets nosniff, X-Frame-Options SAMEORIGIN,
   Referrer-Policy, Permissions-Policy, HSTS. (Static site, no XSS sink; form key is
   public-by-design and does not reveal the destination inbox.)
+- **About photo** — real portrait (`img/about-dylan.webp`, 800×1000) replaces the old
+  placeholder box; `object-fit: cover`, lazy-loaded.
 
 ## ⏳ To do (small, non-blocking polish)
-- [ ] **About photo** — replace the "Foto komt hier (Dylan)" placeholder box with a real photo.
-      (Search `about-photo` in HTML / `about.photo` in the I18N blocks.)
 - [ ] **WhatsApp number** — search `WHATSAPP_NUMBER`, set as `32xxxxxxxxx` (no + or spaces).
       Falls back to the contact form while empty.
 - [ ] **KBO / ondernemingsnummer** in footer — after registering as zelfstandige.
@@ -46,6 +46,14 @@ toggle top-right. Deploy with `firebase deploy`.
 ---
 
 ## Change log
+- **2026-06-17**
+  - **About photo added** — real portrait `img/about-dylan.webp` (800×1000, WebP)
+    replaces the "Foto komt hier" placeholder. `.about-photo img` cover + `overflow:hidden`,
+    lazy-load, `onerror` removes img → falls back to gradient.
+  - **Cleanup** — deleted the now-dead `about.photo` I18N keys (all 3 langs) and the
+    unused 2400×1500 PNG screenshot originals (`img/work-*.png`, ~6 MB); dropped the
+    now-moot `img/work-*.png` entry from the `firebase.json` ignore list. Repo now
+    holds only what's actually used.
 - **2026-06-15**
   - Added FR as a full third language (nav button + `fr` I18N block + form messages).
   - Upgraded `<head>`: regional SEO meta, geo tags, `ProfessionalService` JSON-LD.

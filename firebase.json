@@ -1,7 +1,7 @@
 {
   "hosting": {
     "public": ".",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "README.md", "og-image.html", "img/work-*.png"],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "README.md", "og-image.html"],
     "cleanUrls": true,
     "headers": [
       {
