@@ -28,14 +28,14 @@ toggle top-right. Deploy with `firebase deploy`.
   public-by-design and does not reveal the destination inbox.)
 - **About photo** — real portrait (`img/about-dylan.webp`, 800×1000) replaces the old
   placeholder box; `object-fit: cover`, lazy-loaded.
+- **Google Business Profile created** + site NAP synced to match it — dedicated business
+  line `+32 456 93 10 87` (WhatsApp `wa.me/32456931087`, `tel:` link, schema `telephone`),
+  service-area business (no public address; `PostalAddress` removed, areaServed lists the
+  GBP municipalities), email `dylan@webowl.be` everywhere.
 
 ## ⏳ To do (small, non-blocking polish)
-- [ ] **WhatsApp number** — search `WHATSAPP_NUMBER`, set as `32xxxxxxxxx` (no + or spaces).
-      Falls back to the contact form while empty.
-- [ ] **KBO / ondernemingsnummer** in footer — after registering as zelfstandige.
-      (Search `foot.kbo` in the I18N blocks.)
-- [ ] **Google Business Profile** for WebOwl — the real lever for being *found* in Antwerp
-      (Maps + local pack + reviews). Free. Bigger SEO impact than any meta tag.
+- [ ] **KBO / ondernemingsnummer** in footer — *deferred until first client says yes*, then he
+      registers as zelfstandige. (Search `foot.kbo` in the I18N blocks.)
 - [ ] (Optional) wire `dylan@webowl.be` into Gmail send-as for one-inbox workflow.
 
 ## 🔁 After any change
@@ -54,6 +54,12 @@ toggle top-right. Deploy with `firebase deploy`.
     unused 2400×1500 PNG screenshot originals (`img/work-*.png`, ~6 MB); dropped the
     now-moot `img/work-*.png` entry from the `firebase.json` ignore list. Repo now
     holds only what's actually used.
+  - **GBP / NAP sync** — Google Business Profile created; synced site contact info to match.
+    Set `WHATSAPP_NUMBER = "32456931087"` (button now live), added visible `tel:` phone line
+    (`contact.tel` key in all 3 langs) + `telephone` in JSON-LD. Removed the `PostalAddress`
+    block (service-area business, no public address) and expanded `areaServed` with the GBP
+    municipalities (Deurne, Berchem, Borgerhout, Merksem, Wilrijk, Hoboken, Mortsel, Edegem,
+    Wijnegem, Linkeroever). Number is a dedicated business line — public-by-design, fine on site.
 - **2026-06-15**
   - Added FR as a full third language (nav button + `fr` I18N block + form messages).
   - Upgraded `<head>`: regional SEO meta, geo tags, `ProfessionalService` JSON-LD.
