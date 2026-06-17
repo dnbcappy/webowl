@@ -60,6 +60,9 @@ toggle top-right. Deploy with `firebase deploy`.
     block (service-area business, no public address) and expanded `areaServed` with the GBP
     municipalities (Deurne, Berchem, Borgerhout, Merksem, Wilrijk, Hoboken, Mortsel, Edegem,
     Wijnegem, Linkeroever). Number is a dedicated business line — public-by-design, fine on site.
+    Also added `openingHoursSpecification` (Ma–Vr 17–21, Za–Zo 10–18) to match GBP — schema-only,
+    invisible. Rich Results Test: valid + eligible; only the optional `address` warning remains
+    (intentional — service-area business, no public address).
 - **2026-06-15**
   - Added FR as a full third language (nav button + `fr` I18N block + form messages).
   - Upgraded `<head>`: regional SEO meta, geo tags, `ProfessionalService` JSON-LD.
